@@ -1,0 +1,84 @@
+div.headline-style {
+    margin-left: auto;
+    margin-right: auto;
+    float: center;
+    font-family: franklin-gothic-urw, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+    color: #01563F;
+    text-align: center;
+    max width: 500px;
+}
+
+div.subhed-style {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    font-family: franklin-gothic-urw, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    max-width: 500px;
+}
+
+div.tooltip-style {
+    position: absolute;
+    text-align: left;
+    width: 200px;
+    display: inline-block;
+    padding: 5px;
+    font-family: franklin-gothic-urw, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.75);
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.boldLabel {
+    font-family: franklin-gothic-urw, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    color: #cccccc;
+    text-align: right;
+}
+
+.categoryLabel {
+    font-family: franklin-gothic-urw, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    color: #cccccc;
+    max-width: 180px;
+    ;
+}
+
+.sourceLabel {
+    /* margin-left: auto;
+    margin-right: auto; */
+    font-family: franklin-gothic-urw, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 11px;
+    color: #666666;
+    text-align: right;
+    max-width: 520px;
+}
+
+span {
+    font-style: italic;
+}
+
+image {
+    max-width: 25px;
+}
+
+.logo {
+    width: 725px;
+    align-items: baseline;
+}
