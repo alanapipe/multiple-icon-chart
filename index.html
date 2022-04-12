@@ -1,264 +1,318 @@
 <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
 
-<head>
-  <meta charset="utf-8">
-  <!-- link to version 4 of d3 -->
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel='stylesheet' href="https://use.typekit.net/ckg7yjc.css">
+    <link rel='stylesheet' href="styles.css">
+      <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body>
 
-  <!-- instead of stylesheets -->
-  <link rel='stylesheet' href="https://use.typekit.net/ckg7yjc.css">
-  <link rel='stylesheet' href="styles.css">
+    <h1>FAIQ Service Awards - Global Report Brainstorm</h1>
+    <div class='headline-style'>FAIQ Service Award Tally 2021</div>
+    <div class='subhed-style'>Medals won by each manager in the Financial Adviser Service Awards. Hover for details on each award.</div>
 
-</head>
+    <script>
+      // declate outer height and width as variables to easily modify
+      var outerWidth = 620,
+        outerHeight = 500;
 
-<body>
-  <div class='headline-style'>FAIQ Service Award Tally 2021</div>
-  <div class='subhed-style'>Medals won by each manager in the Financial Adviser Service Awards. Hover for details on each award.</div>
-
-  <script>
-    // declate outer height and width as variables to easily modify
-    var outerWidth = 720,
-      outerHeight = 500;
-
-    var fundFireColors = ['#990000', '#FF9933', '#006666', '#99CC33', '#009999', '#006699', '#CC0000'],
-      agendaColors = ['#98002E', '#582700', '#336699', '#996600', '#003366', '#004F24', '#759900', '#646569'],
-      ignitesColors = ['#E61C3A', '#F06100', '#B2651F', '#004F24', '#70B5D3', '#EDC55B', '#807A89'],
-      boardIqColors = ['#0F004E', '#EC881D', '#783300', '#339999'],
-      mandateWireColors = ['#7EA0C3', '#E09859', '#93B595', '#B297AF'],
-      faiqColors = ['#01563F', '#000000', '#034A64', '#004F24', '#0F004E', '#967092', '#9DC359', '#EDC55B'];
-
-
-    //choose which publication this infographic is for
-    let publicationColors = faiqColors;
-    let medalIcons = ['gold.png', 'silver.png', 'bronze.png']
-    let sourceText = "Source: <span>FAIQ</span> Service Awards";
-
-    // make variable for margins to easily move the axes/ differentiate between inner and outer
-    var margin = {
-      top: 20,
-      left: 220,
-      right: 300,
-      bottom: 30
-    };
-
-    //declare the inner width of just the chart (just call it width) and define it in relation to the margins we made
-    var width = outerWidth - margin.left - margin.right,
-      height = outerHeight - margin.top - margin.bottom;
+      var fundFireColors = ['#990000', '#FF9933', '#006666', '#99CC33', '#009999', '#006699', '#CC0000'],
+        agendaColors = ['#98002E', '#582700', '#336699', '#996600', '#003366', '#004F24', '#759900', '#646569'],
+        ignitesColors = ['#E61C3A', '#F06100', '#B2651F', '#004F24', '#70B5D3', '#EDC55B', '#807A89'],
+        boardIqColors = ['#0F004E', '#EC881D', '#783300', '#339999'],
+        mandateWireColors = ['#7EA0C3', '#E09859', '#93B595', '#B297AF'],
+        faiqColors = ['#01563F', '#000000', '#034A64', '#004F24', '#0F004E', '#967092', '#9DC359', '#EDC55B'];
 
 
-    //create a linear scale for the x coordinates
-    var xScale = d3.scaleLinear()
-      .range([0, width]);
+      //choose which publication this infographic is for
+      let publicationColors = faiqColors;
+      let medalIcons = ['gold.png', 'silver.png', 'bronze.png']
+      let sourceText = "Source: <span>FAIQ</span> Service Awards";
 
-    //create a linear scale for the y coordinates, and put the larger number (height variable) first so that the y axis will flip
-    var yScale = d3.scaleLinear()
-      .range([height - 30, 0]);
+      // make variable for margins to easily move the axes/ differentiate between inner and outer
+      var margin = {
+        top: 20,
+        left: 250,
+        right: 200,
+        bottom: 30
+      };
+
+      //declare the inner width of just the chart (just call it width) and define it in relation to the margins we made
+      var width = outerWidth - margin.left - margin.right,
+        height = outerHeight - margin.top - margin.bottom;
 
 
-    //create an ordinal scale and fill it with colors. the colors can be assigned one by one to specified categories. storing schemes in a variable here.
-    var colorScale = d3.scaleOrdinal()
-      .range(publicationColors);
+      //create a linear scale for the x coordinates
+      var xScale = d3.scaleLinear()
+        .range([0, width]);
 
-    var medalScale = d3.scaleOrdinal()
-      .range(['gold.png', 'silver.png', 'bronze.png'])
-    // LOAD THE DATA --> the data is stored in a "dictionary" the + is to turn the row names into strings? or strings to js
-    d3.csv("data/icontally.csv", function(err, csvData) {
-      csvData.forEach(function(row) {
-        //EDIT for x axis values
-        row.xAxisColumn = +row.xAxisColumn;
-        //EDIT for y axis values
-        row.yAxisColumn = +row.yAxisColumn;
-        //follow this pattern for any numeric data
-        row.medal = +row.medal;
+      //create a linear scale for the y coordinates, and put the larger number (height variable) first so that the y axis will flip
+      var yScale = d3.scaleLinear()
+        .range([height - 30, 0]);
+
+
+      //create an ordinal scale and fill it with colors. the colors can be assigned one by one to specified categories. storing schemes in a variable here.
+      var colorScale = d3.scaleOrdinal()
+        .range(publicationColors);
+
+      var medalScale = d3.scaleOrdinal()
+        .range(['gold.png', 'silver.png', 'bronze.png'])
+      // LOAD THE DATA --> the data is stored in a "dictionary" the + is to turn the row names into strings? or strings to js
+      d3.csv("icontally.csv", function(err, csvData) {
+        csvData.forEach(function(row) {
+          //EDIT for x axis values
+          row.xAxisColumn = +row.xAxisColumn;
+          //EDIT for y axis values
+          row.yAxisColumn = +row.yAxisColumn;
+          //follow this pattern for any numeric data
+          row.medal = +row.medal;
+        });
+
+        //pass it the variable that will become the xAxis
+        var xAxisValues = csvData.map(function(row) {
+          return row.xAxisColumn;
+        });
+
+        // pass it the variable that will become Y axis
+        var yAxisValues = csvData.map(function(row) {
+          return row.yAxisColumn;
+        });
+
+        var medal = csvData.map(function(row) {
+          return row.medal;
+        });
+
+        //set the domain of the linear x scale to be the extent (lowest and highest) datapoints
+        xScale.domain(d3.extent(xAxisValues));
+
+        //ADJUST MAX AND MIN OF Y AXIS
+        yScale.domain(d3.extent(yAxisValues));
+
+        medalScale.domain(d3.extent(medal));
+
+        //make the inside canvas smaller than the outside canvas to things dont get cut off
+        var svg = d3.select("body")
+          .append("svg")
+          .attr("width", outerWidth)
+          .attr("height", outerHeight)
+          .append("g")
+          .attr("transform", "translate(" + margin.left + " " + margin.top + ")");
+
+        //make a tooltip out of a div. the div will be invisible until we hover on the iconmen.
+        var div = d3.select("body")
+          .append("div")
+          .attr("class", "tooltip-style")
+          .style('opacity', 0);
+
+
+        //define iconmen and bind to data
+        csvData.forEach(function(row) {
+          svg.append("png:image")
+            .datum(row)
+            .attr("width", 29)
+            .attr("height", 29);
+        });
+        //can add below code to above function to scale pngs
+
+        //call iconmen
+        var iconmen = svg.selectAll("image")
+          .attr("x", function(d) {
+            return xScale(d.xAxisColumn);
+          })
+          .attr("y", function(d) {
+            return yScale(d.yAxisColumn);
+          })
+
+
+          .attr("xlink:href", function(d) {
+            if (d.medal === 1) {
+              return 'gold.png';
+
+            } else if (d.medal === 2) {
+              return 'silver.png';
+
+            } else {
+              return 'bronze.png';
+            }
+          })
+
+          .attr('opacity', '0.9')
+          //still in reference to iconmen, tell iconmen what to look like when not hovering.
+          .on('mouseout', function(d) {
+            div.transition()
+              .duration(1000)
+              .style('opacity', 0)
+            d3.select(this)
+              .attr('stroke', 'none');
+          })
+          //tell iconmen what to look like when the mouse is hovering and call the tooltip that lives in the css stylesheet
+          .on('mouseover', function(d) {
+            d3.select(this).attr('stroke', '#fff')
+            div.transition()
+              .duration(200)
+              .style('opacity', 1)
+            div.html('<span class=name>'+d.name + '</span><br><div class=br>' + d.metal + ' for <span class=award>' + d.award+'</span>, '+d.size+'</div>')
+              .style("left", (d3.event.pageX + 20) + "px")
+              .style("top", (d3.event.pageY - 10) + "px");
+          })
+
+        var label1 = d3.select("svg")
+          .append("text")
+          .attr('x', 25)
+          .attr('y', 40)
+          .attr('class', 'boldLabel')
+          .text("Capital Group / American Funds");
+
+
+        var label2 = d3.select("svg")
+          .append("text")
+          .attr('x', 160)
+          .attr('y', 68)
+          .attr('class', 'boldLabel')
+          .text("First Trust");
+
+        var label3 = d3.select("svg")
+          .append("text")
+          .attr('x', 5)
+          .attr('y', 96)
+          .attr('class', 'boldLabel')
+          .text("Blacksone Private Wealth Solutions");
+
+        var label4 = d3.select("svg")
+          .append("text")
+          .attr('x', 136)
+          .attr('y', 124)
+          .attr('class', 'boldLabel')
+          .attr('text-anchor', 'right')
+          .text("Davis Advisors");
+
+        var label5 = d3.select("svg")
+          .append("text")
+          .attr('x', 99)
+          .attr('y', 152)
+          .attr('class', 'boldLabel')
+          .attr('text-anchor', 'right')
+          .text("Putnam Investments");
+
+        var label6 = d3.select("svg")
+          .append("text")
+          .attr('x', 55)
+          .attr('y', 180)
+          .attr('class', 'boldLabel')
+          .attr('text-align', 'right')
+          .text("J.P Morgan Asset Managers");
+
+        var label7 = d3.select("svg")
+          .append("text")
+          .attr('x', 100)
+          .attr('y', 208)
+          .attr('class', 'boldLabel')
+          .attr('text-anchor', 'right')
+          .text("Loomis, Sayles & Co.");
+
+        var label8 = d3.select("svg")
+          .append("text")
+          .attr('x', 100)
+          .attr('y', 236)
+          .attr('class', 'boldLabel')
+          .attr('text-anchor', 'right')
+          .text("BlackRock / iShares");
+
+        var label9 = d3.select("svg")
+          .append("text")
+          .attr('x', 88)
+          .attr('y', 264)
+          .attr('class', 'boldLabel')
+          .attr('text-anchor', 'right')
+          .text("First Eagle Investment");
+
+        var label10 = d3.select("svg")
+          .append("text")
+          .attr('x', 103)
+          .attr('y', 292)
+          .attr('class', 'boldLabel')
+          .attr('text-anchor', 'right')
+          .text("Fidelity Investments");
+
+          var label11 = d3.select("svg")
+            .append("text")
+            .attr('x', 168)
+            .attr('y', 320)
+            .attr('class', 'boldLabel')
+            .attr('text-anchor', 'right')
+            .text("Vanguard");
+
+            var label12 = d3.select("svg")
+              .append("text")
+              .attr('x', 158)
+              .attr('y', 348)
+              .attr('class', 'boldLabel')
+              .attr('text-anchor', 'right')
+              .text("Nationwide");
+
+              var label13 = d3.select("svg")
+                .append("text")
+                .attr('x', 158)
+                .attr('y', 376)
+                .attr('class', 'boldLabel')
+                .attr('text-anchor', 'right')
+                .text("DoubleLine");
+
+                var label14 = d3.select("svg")
+                  .append("text")
+                  .attr('x', 145)
+                  .attr('y', 404)
+                  .attr('class', 'boldLabel')
+                  .attr('text-anchor', 'right')
+                  .text("Pacific Funds");
+
+                  var label15 = d3.select("svg")
+                    .append("text")
+                    .attr('x', 160)
+                    .attr('y', 432)
+                    .attr('class', 'boldLabel')
+                    .attr('text-anchor', 'right')
+                    .text("ARK Invest");
+
+                    var label16 = d3.select("svg")
+                      .append("text")
+                      .attr('x', 135)
+                      .attr('y', 460)
+                      .attr('class', 'boldLabel')
+                      .attr('text-anchor', 'right')
+                      .text("Cohen & Steers");
+
+        csvData.forEach(function(row) {
+          svg.append("text")
+            .datum(row)
+        });
+
+        var logo = svg.append('image')
+          .attr('xlink:href', 'https://datamaps.money-media.com/FAIQ/FAIQlogo.png')
+          .attr('x', width)
+          .attr('y', 420)
+          .attr('width', 100)
+          .attr('height', 100);
+
+        //add the source as html
+        var sourceLabel = d3.select("body")
+          .append("div")
+          .attr("class", "sourceLabel")
+          .attr('x', width)
+          .attr('y', 520)
+          .html(sourceText)
       });
+    </script>
 
-      //pass it the variable that will become the xAxis
-      var xAxisValues = csvData.map(function(row) {
-        return row.xAxisColumn;
-      });
+    <!-- <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/9208411"><script src="https://public.flourish.studio/resources/embed.js"></script>Which of these asset managers have you worked with in the past two years?</div>
+    <div class="flourish-embed flourish-survey" data-src="visualisation/9209369"><script src="https://public.flourish.studio/resources/embed.js"></script>Which do you consider the best ERISA Lawfirm?</div>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/9210965"><script src="https://public.flourish.studio/resources/embed.js"></script>Asset Managers: Best Overall Content and Commentary</div>
+    </div> -->
 
-      // pass it the variable that will become Y axis
-      var yAxisValues = csvData.map(function(row) {
-        return row.yAxisColumn;
-      });
+<!-- <p>Lorem Ipsum</p> -->
 
-      var medal = csvData.map(function(row) {
-        return row.medal;
-      });
-
-      //set the domain of the linear x scale to be the extent (lowest and highest) datapoints
-      xScale.domain(d3.extent(xAxisValues));
-
-      //ADJUST MAX AND MIN OF Y AXIS
-      yScale.domain(d3.extent(yAxisValues));
-
-      medalScale.domain(d3.extent(medal));
-
-      //make the inside canvas smaller than the outside canvas to things dont get cut off
-      var svg = d3.select("body")
-        .append("svg")
-        .attr("width", outerWidth)
-        .attr("height", outerHeight)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + " " + margin.top + ")");
-
-      //make a tooltip out of a div. the div will be invisible until we hover on the iconmen.
-      var div = d3.select("body")
-        .append("div")
-        .attr("class", "tooltip-style")
-        .style('opacity', 0);
-
-
-      //define iconmen and bind to data
-      csvData.forEach(function(row) {
-        svg.append("png:image")
-          .datum(row)
-          .attr("width", 29)
-          .attr("height", 29);
-      });
-      //can add below code to above function to scale pngs
-
-
-      //call iconmen
-      var iconmen = svg.selectAll("image")
-        .attr("x", function(d) {
-          return xScale(d.xAxisColumn);
-        })
-        .attr("y", function(d) {
-          return yScale(d.yAxisColumn);
-        })
-
-
-        .attr("xlink:href", function(d) {
-          if (d.medal === 1) {
-            return 'gold.png';
-
-          } else if (d.medal === 2) {
-            return 'silver.png';
-
-          } else {
-            return 'bronze.png';
-          }
-        })
-
-        .attr('opacity', '0.9')
-        //still in reference to iconmen, tell iconmen what to look like when not hovering.
-        .on('mouseout', function(d) {
-          div.transition()
-            .duration(1000)
-            .style('opacity', 0)
-          d3.select(this)
-            .attr('stroke', 'none');
-        })
-        //tell iconmen what to look like when the mouse is hovering and call the tooltip that lives in the css stylesheet
-        .on('mouseover', function(d) {
-          d3.select(this).attr('stroke', '#fff')
-          div.transition()
-            .duration(200)
-            .style('opacity', 1)
-          div.html(d.name + '<br><br>' + d.metal + ' for ' + d.award)
-            .style("left", (d3.event.pageX + 20) + "px")
-            .style("top", (d3.event.pageY - 10) + "px");
-        })
-
-      var label1 = d3.select("svg")
-        .append("text")
-        .attr('x', 20)
-        .attr('y', 40)
-        .attr('class', 'boldLabel')
-        .text("Apollo Global Management");
-
-
-      var label2 = d3.select("svg")
-        .append("text")
-        .attr('x', 5)
-        .attr('y', 123)
-        .attr('class', 'boldLabel')
-        .text("Ares Management");
-
-      var label3 = d3.select("svg")
-        .append("text")
-        .attr('x', 5)
-        .attr('y', 166)
-        .attr('class', 'boldLabel')
-        .text("Bain Capital");
-
-      var label4 = d3.select("svg")
-        .append("text")
-        .attr('x', 5)
-        .attr('y', 210)
-        .attr('class', 'boldLabel')
-        .attr('text-anchor', 'right')
-        .text("Blackstone Group");
-
-      var label5 = d3.select("svg")
-        .append("text")
-        .attr('x', 5)
-        .attr('y', 253)
-        .attr('class', 'boldLabel')
-        .attr('text-anchor', 'right')
-        .text("Carlyle Group");
-
-      var label6 = d3.select("svg")
-        .append("text")
-        .attr('x', 5)
-        .attr('y', 296)
-        .attr('class', 'boldLabel')
-        .attr('text-anchor', 'right')
-        .text("CBRE Global Investors");
-
-      var label7 = d3.select("svg")
-        .append("text")
-        .attr('x', 5)
-        .attr('y', 336)
-        .attr('class', 'boldLabel')
-        .attr('text-anchor', 'right')
-        .text("KKR");
-
-      var label8 = d3.select("svg")
-        .append("text")
-        .attr('x', 5)
-        .attr('y', 378)
-        .attr('class', 'boldLabel')
-        .attr('text-anchor', 'right')
-        .text("LaSalle Investment Management");
-
-      var label9 = d3.select("svg")
-        .append("text")
-        .attr('x', 5)
-        .attr('y', 418)
-        .attr('class', 'boldLabel')
-        .attr('text-anchor', 'right')
-        .text("Oaktree Capital Management");
-
-      var label10 = d3.select("svg")
-        .append("text")
-        .attr('x', 5)
-        .attr('y', 460)
-        .attr('class', 'boldLabel')
-        .attr('text-anchor', 'right')
-        .text("TPG");
-
-      csvData.forEach(function(row) {
-        svg.append("text")
-          .datum(row)
-      });
-
-      var logo = svg.append('image')
-        .attr('xlink:href', 'https://datamaps.money-media.com/FAIQ/FAIQlogo.png')
-        .attr('x', width)
-        .attr('y', 420)
-        .attr('width', 100)
-        .attr('height', 100);
-
-      //add the source as html
-      var sourceLabel = d3.select("body")
-        .append("div")
-        .attr("class", "sourceLabel")
-        .attr('x', width)
-        .attr('y', 420)
-        .html(sourceText)
-    });
-  </script>
-  </div>
-</body>
+  </body>
+</html>

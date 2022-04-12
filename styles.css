@@ -1,3 +1,13 @@
+.flourish-embed{
+  max-width:700px;
+  margin:auto;
+  padding-top:35px;
+}
+
+h1{
+  text-align:center;
+}
+
 div.headline-style {
     margin-left: auto;
     margin-right: auto;
@@ -14,7 +24,6 @@ div.headline-style {
 div.subhed-style {
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 20px;
     font-family: franklin-gothic-urw, sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -27,12 +36,12 @@ div.subhed-style {
 div.tooltip-style {
     position: absolute;
     text-align: left;
-    width: 200px;
+    width: 300px;
     display: inline-block;
     padding: 5px;
     font-family: franklin-gothic-urw, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: normal;
     background: rgba(255, 255, 255, 0.75);
     border: 0px;
     border-radius: 8px;
@@ -66,8 +75,9 @@ div.tooltip-style {
     font-style: normal;
     font-size: 11px;
     color: #666666;
-    text-align: right;
-    max-width: 520px;
+    text-align: left;
+    padding-left: 25%;
+    max-width: 720px;
 }
 
 span {
@@ -81,4 +91,23 @@ image {
 .logo {
     width: 725px;
     align-items: baseline;
+}
+
+.name{
+  font-weight: bold;
+  font-style: normal;
+  font-size:16px;
+}
+
+.award{
+  font-weight:bold;
+  font-size:14px;
+}
+
+svg{
+  margin-left: 32%;
+}
+
+.br{
+  padding-top: 5px;
 }

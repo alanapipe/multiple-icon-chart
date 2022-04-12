@@ -1,0 +1,69 @@
+xAxisColumn,yAxisColumn,name,award,medal,points,metal,size
+1,2,ARK Invest,Audio/Video,3,1,Bronze,midsize
+1,9,BlackRock / iShares,White Papers,2,2,Silver,large
+2,9,BlackRock / iShares,Asset Managers: Best Product Lineup Management,2,2,Silver,large
+3,9,BlackRock / iShares,Portfolio Managers' Letters,3,1,Bronze,large
+4,9,BlackRock / iShares,Macro Commentary,3,1,Bronze,large
+5,9,BlackRock / iShares,Overall Content & Commentary,3,1,Bronze,large
+6,9,BlackRock / iShares,Asset Managers: Best Sales and Relationship Management Teams,3,1,Bronze,large
+1,14,"Blackstone Private WealthSolutions",Audio/Video,1,3,Gold,small
+2,14,"Blackstone Private WealthSolutions",Overall Content & Commentary,1,3,Gold,small
+3,14,"Blackstone Private WealthSolutions",Asset Managers: Best Sales and Relationship Management Teams,1,3,Gold,small
+4,14,"Blackstone Private WealthSolutions",Asset Managers: Best Product Lineup Management,1,3,Gold,small
+5,14,"Blackstone Private WealthSolutions",White Papers,2,2,Silver,small
+6,14,"Blackstone Private WealthSolutions",Portfolio Managers' Letters,3,1,Bronze,small
+7,14,"Blackstone Private WealthSolutions",Macro Commentary,3,1,Bronze,small
+1,16,Capital Group / American Funds,Portfolio Managers' Letters,1,3,Gold,large
+2,16,Capital Group / American Funds,Macro Commentary,1,3,Gold,large
+3,16,Capital Group / American Funds,White Papers,1,3,Gold,large
+4,16,Capital Group / American Funds,Audio/Video,1,3,Gold,large
+5,16,Capital Group / American Funds,Overall Content & Commentary,1,3,Gold,large
+6,16,Capital Group / American Funds,Asset Managers: Best Sales and Relationship Management Teams,1,3,Gold,large
+7,16,Capital Group / American Funds,Asset Managers: Best Product Lineup Management,1,3,Gold,large
+1,1,Cohen & Steers,White Papers,3,1,Bronze,midsize
+1,13,Davis Advisors,Portfolio Managers' Letters,1,3,Gold,small
+2,13,Davis Advisors,Macro Commentary,1,3,Gold,small
+3,13,Davis Advisors,White Papers,1,3,Gold,small
+4,13,Davis Advisors,Audio/Video,2,2,Silver,small
+5,13,Davis Advisors,Overall Content & Commentary,2,2,Silver,small
+6,13,Davis Advisors,Asset Managers: Best Sales and Relationship Management Teams,3,1,Bronze,small
+7,13,Davis Advisors,Asset Managers: Best Product Lineup Management,3,1,Bronze,small
+1,4,DoubleLine,Audio/Video,3,1,Bronze,midsize
+1,7,Fidelity Investments,Asset Managers: Best Sales and Relationship Management Teams,2,2,Silver,large
+2,7,Fidelity Investments,White Papers,3,1,Bronze,large
+3,7,Fidelity Investments,Audio/Video,3,1,Bronze,large
+4,7,Fidelity Investments,Asset Managers: Best Product Lineup Management,3,1,Bronze,large
+1,8,First Eagle Investment,Portfolio Managers' Letters,3,1,Bronze,midsize
+2,8,First Eagle Investment,Macro Commentary,3,1,Bronze,midsize
+3,8,First Eagle Investment,White Papers,3,1,Bronze,midsize
+4,8,First Eagle Investment,Overall Content & Commentary,3,1,Bronze,midsize
+5,8,First Eagle Investment,Asset Managers: Best Sales and Relationship Management Teams,3,1,Bronze,midsize
+6,8,First Eagle Investment,Asset Managers: Best Product Lineup Management,3,1,Bronze,midsize
+1,15,First Trust,Portfolio Managers' Letters,1,3,Gold,midsize
+2,15,First Trust,Macro Commentary,1,3,Gold,midsize
+3,15,First Trust,White Papers,1,3,Gold,midsize
+4,15,First Trust,Audio/Video,1,3,Gold,midsize
+5,15,First Trust,Overall Content & Commentary,1,3,Gold,midsize
+6,15,First Trust,Asset Managers: Best Product Lineup Management,1,3,Gold,midsize
+7,15,First Trust,Asset Managers: Best Sales and Relationship Management Teams,1,3,Gold,midsize
+1,11,J.P. Morgan Asset Management,Portfolio Managers' Letters,2,2,Silver,large
+2,11,J.P. Morgan Asset Management,Macro Commentary,2,2,Silver,large
+3,11,J.P. Morgan Asset Management,Audio/Video,2,2,Silver,large
+4,11,J.P. Morgan Asset Management,Overall Content & Commentary,2,2,Silver,large
+1,10,"Loomis, Sayles & Co.",Portfolio Managers' Letters,2,2,Silver,small
+2,10,"Loomis, Sayles & Co.",Macro Commentary,2,2,Silver,small
+3,10,"Loomis, Sayles & Co.",Asset Managers: Best Product Lineup Management,2,2,Silver,small
+1,10,"Loomis, Sayles & Co.",Asset Managers: Best Sales and Relationship Management Teams,2,2,Silver,small
+4,10,"Loomis, Sayles & Co.",White Papers,3,1,Bronze,small
+1,5,Nationwide,Audio/Video,3,1,Bronze,small
+2,5,Nationwide,Overall Content & Commentary,3,1,Bronze,small
+1,3,Pacific Funds,Audio/Video,3,1,Bronze,small
+1,12,Putnam Investments,Portfolio Managers' Letters,2,2,Silver,midsize
+2,12,Putnam Investments,Macro Commentary,2,2,Silver,midsize
+3,12,Putnam Investments,White Papers,2,2,Silver,midsize
+4,12,Putnam Investments,Audio/Video,2,2,Silver,midsize
+5,12,Putnam Investments,Overall Content & Commentary,2,2,Silver,midsize
+6,12,Putnam Investments,Asset Managers: Best Product Lineup Management,2,2,Silver,midsize
+7,12,Putnam Investments,Asset Managers: Best Product Lineup Management,2,2,Silver,midsize
+1,6,Vanguard,White Papers,2,2,Silver,large
+2,6,Vanguard,Asset Managers: Best Product Lineup Management,3,1,Bronze,large
